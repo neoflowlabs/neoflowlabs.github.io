@@ -1,0 +1,39 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+header {
+  background: #070038;
+  color: white;
+  padding: 1em 0;
+  text-align: center;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+.logo {
+  width: 120px;
+}
+.hero {
+  padding: 50px;
+  background: linear-gradient(to right, #070038, #FC8200);
+  color: white;
+}
+.project-card {
+  background: white;
+  padding: 15px;
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
