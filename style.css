@@ -16,6 +16,7 @@
 .hero h1 {
   font-size: 3em;
   margin-bottom: 20px;
+  animation: fadeIn 2s ease-in-out;
 }
 
 .hero .highlight {
@@ -26,6 +27,7 @@
   font-size: 1.2em;
   margin-bottom: 30px;
   max-width: 700px;
+  animation: slideUp 2s ease-in-out;
 }
 
 .hero .btn {
@@ -35,6 +37,7 @@
   border-radius: 5px;
   text-decoration: none;
   transition: all 0.3s ease;
+  animation: fadeIn 3s ease-in-out;
 }
 
 .hero .btn:hover {
