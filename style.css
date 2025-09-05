@@ -61,50 +61,49 @@ nav ul li a.active {
 .hero {
   height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 0 10%;
-  background: linear-gradient(-45deg, var(--primary), #1a0b5e, var(--secondary), #ffae42);
+  background: linear-gradient(135deg, #070038, #1b1b5e, #FC8200);
   background-size: 400% 400%;
-  animation: gradient 12s ease infinite;
+  animation: gradientShift 12s ease infinite;
   color: white;
 }
 
-.hero h1 {
-  font-size: 3em;
-  margin-bottom: 15px;
-}
-
-.hero .highlight {
-  color: var(--secondary);
-}
-
-.hero p {
-  font-size: 1.2em;
-  margin-bottom: 30px;
-}
-
-.btn {
-  padding: 12px 25px;
-  background: var(--secondary);
-  color: white;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s;
-}
-
-.btn:hover {
-  background: #ff9c33;
-  transform: scale(1.05);
-}
-
-@keyframes gradient {
+@keyframes gradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero h1 span {
+  color: #FC8200;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.cta-btn {
+  background: #FC8200;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.cta-btn:hover {
+  background: #fff;
+  color: #070038;
+  transform: scale(1.05);
 }
 
 /* FEATURES / SERVICES / PROJECTS */
