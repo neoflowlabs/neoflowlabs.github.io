@@ -1,22 +1,80 @@
-/* Hero Section */
+/* GLOBAL STYLES */
+:root {
+  --primary: #070038;
+  --secondary: #FC8200;
+  --light: #f9f9f9;
+  --dark: #111;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  line-height: 1.6;
+  background: #fff;
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+/* NAVBAR */
+header {
+  background: var(--primary);
+  padding: 15px 10%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: var(--secondary);
+}
+
+/* HERO */
 .hero {
-  height: 90vh;
-  background: linear-gradient(-45deg, #070038, #0e005a, #1a0a75, #FC8200);
-  background-size: 400% 400%;
-  animation: gradientBG 12s ease infinite;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 0 10%;
+  background: linear-gradient(-45deg, var(--primary), #1a0b5e, var(--secondary), #ffae42);
+  background-size: 400% 400%;
+  animation: gradient 12s ease infinite;
   color: white;
-  padding: 20px;
 }
 
 .hero h1 {
   font-size: 3em;
-  margin-bottom: 20px;
-  animation: fadeIn 2s ease-in-out;
+  margin-bottom: 15px;
 }
 
 .hero .highlight {
@@ -26,28 +84,126 @@
 .hero p {
   font-size: 1.2em;
   margin-bottom: 30px;
-  max-width: 700px;
-  animation: slideUp 2s ease-in-out;
 }
 
-.hero .btn {
+.btn {
+  padding: 12px 25px;
   background: var(--secondary);
   color: white;
-  padding: 12px 25px;
-  border-radius: 5px;
+  border-radius: 30px;
   text-decoration: none;
-  transition: all 0.3s ease;
-  animation: fadeIn 3s ease-in-out;
+  font-weight: bold;
+  transition: all 0.3s;
 }
 
-.hero .btn:hover {
-  background: white;
-  color: var(--primary);
+.btn:hover {
+  background: #ff9c33;
+  transform: scale(1.05);
 }
 
-/* Animated Gradient Keyframes */
-@keyframes gradientBG {
+@keyframes gradient {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+/* FEATURES / SERVICES / PROJECTS */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 80px 10%;
+  background: var(--light);
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* ABOUT */
+.about-content {
+  padding: 80px 10%;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text h2 {
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.about-image {
+  flex: 1;
+  text-align: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+}
+
+/* CONTACT */
+.contact-info {
+  padding: 80px 10%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.contact-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.contact-card a {
+  color: var(--secondary);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* FOOTER */
+footer {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+/* RESPONSIVENESS */
+@media(max-width: 768px) {
+  nav ul {
+    display: none; /* Later we can add hamburger menu */
+  }
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
 }
