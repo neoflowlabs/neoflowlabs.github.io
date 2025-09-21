@@ -19,18 +19,22 @@
 html{scroll-behavior:smooth}
 body{
   margin:0;
-  font-family:Poppins,Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell,"Helvetica Neue",Arial,sans-serif;
   color:var(--text);
   background:linear-gradient(180deg,#0b0b0c, #121315 40%, #0f0f10);
 }
 
 img{max-width:100%;display:block}
-
 a{color:inherit;text-decoration:none}
 p{line-height:1.7;color:var(--muted)}
 
-header{position:sticky;top:0;z-index:50;background:rgba(15,15,16,.7);backdrop-filter:blur(10px);border-bottom:1px solid #1b1c1f}
-
+/* ----- Header / Nav ----- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(15,15,16,.7);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid #1b1c1f
+}
 nav{
   max-width:var(--max);
   margin:auto;
@@ -52,11 +56,16 @@ nav{
   padding:10px 12px;
   border-radius:999px;
   font-weight:500;
-  transition:opacity .25s, transform .2s;
+  transition:opacity .25s, transform .2s, background .25s, color .25s, border-color .25s;
 }
 .nav-links a:hover{opacity:.8; transform:translateY(-1px)}
-.nav-links a.active{background:#2a2a2a; border:1px solid #34363b}
+.nav-links a.active{
+  background:var(--brand);
+  color:#0c100c;
+  border:1px solid var(--brand-2);
+}
 
+/* Hamburger + Mobile menu */
 .hamburger{display:none; flex-direction:column; gap:4px; margin-left:auto; cursor:pointer}
 .hamburger span{width:24px; height:2px; background:#fff; border-radius:2px}
 
@@ -69,8 +78,24 @@ nav{
   display:flex; flex-direction:column; gap:16px;
 }
 .mobile-menu.open{transform:none}
-.mobile-menu a{padding:12px 8px; border-bottom:1px solid #1b1c1f}
+.mobile-menu a{
+  padding:12px 8px;
+  border-bottom:1px solid #1b1c1f;
+  border-radius:8px;
+  transition:background .25s, color .25s, border-color .25s;
+}
+.mobile-menu a:hover{background:#1c1d20}
+.mobile-menu a:active{
+  background:var(--brand);
+  color:#0c100c;
+}
+.mobile-menu a.active{
+  background:var(--brand);
+  color:#0c100c;
+  border:1px solid var(--brand-2);
+}
 
+/* ----- Hero ----- */
 .hero{
   position:relative;
   min-height:70vh;
@@ -94,7 +119,10 @@ nav{
 }
 .hero h1 span{color:var(--brand)}
 .hero p{font-size:clamp(16px,2.2vw,20px)}
-.cta-btn{
+
+/* ----- Buttons (global) ----- */
+.cta-btn,
+button {
   display:inline-block;
   margin-top:20px;
   padding:12px 20px;
@@ -102,10 +130,23 @@ nav{
   border:1px solid #34363b;
   border-radius:999px;
   font-weight:600;
+  color:var(--text);
+  cursor:pointer;
+  transition:background .25s, color .25s, border-color .25s, box-shadow .2s;
+}
+.cta-btn:hover,
+button:hover { background:#34363b; }
+.cta-btn:active,
+button:active {
+  background:var(--brand);
+  border-color:var(--brand-2);
+  color:#0c100c;
 }
 
+/* ----- Layout sections ----- */
 .section{max-width:var(--max); margin:auto; padding:var(--space-6) var(--space-3)}
 
+/* Feature cards */
 .features{
   max-width:var(--max);
   margin:auto;
@@ -125,6 +166,7 @@ nav{
 .card h2{margin:0 0 6px}
 .card p{margin:0}
 
+/* Page header */
 .page-header{
   text-align:center;
   padding:var(--space-6) var(--space-3);
@@ -132,6 +174,7 @@ nav{
 .page-header h1{font-size:clamp(28px,5vw,48px); margin:0 0 10px}
 .page-header .highlight{color:var(--brand)}
 
+/* About layout */
 .about-container{
   max-width:var(--max);
   margin:auto;
@@ -145,6 +188,7 @@ nav{
 .about-text p{margin:0 0 18px}
 .about-image img{border-radius:var(--rad); border:1px solid #2a2d31}
 
+/* Contact cards */
 .contact-info{
   max-width:var(--max);
   margin:auto;
@@ -155,13 +199,16 @@ nav{
 }
 .contact-card{background:var(--card); border:1px solid #2a2d31; border-radius:var(--rad); padding:var(--space-4)}
 
+/* Footer */
 footer{border-top:1px solid #1b1c1f; padding:20px; text-align:center; color:#999}
 
+/* ----- Animations ----- */
 .fade-in{opacity:0; transform:translateY(10px); transition:all .6s ease-out}
 .fade-in.revealed{opacity:1; transform:none}
 .slide-up{opacity:0; transform:translateY(18px); transition:all .7s ease-out}
 .slide-up.revealed{opacity:1; transform:none}
 
+/* ----- Responsive ----- */
 @media (max-width: 900px){
   .features{grid-template-columns:1fr}
   .contact-info{grid-template-columns:1fr}
@@ -170,14 +217,13 @@ footer{border-top:1px solid #1b1c1f; padding:20px; text-align:center; color:#999
   .hamburger{display:flex}
 }
 
-/* Override for card typography */
+/* ----- Typography tweaks for cards ----- */
 .card h2 {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 1.25rem;
   margin-bottom: 8px;
 }
-
 .card p {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
@@ -185,6 +231,7 @@ footer{border-top:1px solid #1b1c1f; padding:20px; text-align:center; color:#999
   color: var(--muted);
 }
 
+/* ----- Contact form section ----- */
 .contact-form {
   max-width: 600px;
   margin: 40px auto;
@@ -194,9 +241,7 @@ footer{border-top:1px solid #1b1c1f; padding:20px; text-align:center; color:#999
   border: 1px solid #2a2d31;
   text-align: center;
 }
-.contact-form h2 {
-  margin-bottom: 16px;
-}
+.contact-form h2 { margin-bottom: 16px; }
 .contact-form input,
 .contact-form textarea {
   width: 100%;
@@ -212,10 +257,8 @@ footer{border-top:1px solid #1b1c1f; padding:20px; text-align:center; color:#999
   outline: none;
   border-color: var(--brand);
 }
-.contact-form button {
-  width: 100%;
-}
 
+/* Status message after submit */
 #form-status {
   margin-top: 16px;
   font-size: 0.95rem;
@@ -223,6 +266,36 @@ footer{border-top:1px solid #1b1c1f; padding:20px; text-align:center; color:#999
   font-weight: 500;
   display: none;
 }
-#form-status.error {
-  color: #ff6b6b;
+#form-status.error { color: #ff6b6b; }
+
+/* Contact form button — brand colours */
+.contact-form .cta-btn {
+  width: 100%;
+  background: #1f2124;
+  border: 1px solid #34363b;
+  color: var(--text);
+  border-radius: 999px;
+  font-weight: 600;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background .25s, color .25s, border-color .25s, box-shadow .2s;
+}
+.contact-form .cta-btn:hover {
+  background: #282c30;
+  border-color: #3a3f45;
+}
+.contact-form .cta-btn:focus-visible {
+  outline: 0;
+  box-shadow:
+    0 0 0 3px rgba(128,255,68,.18),
+    0 0 0 1px var(--brand);
+}
+.contact-form .cta-btn:active {
+  background: var(--brand);
+  border-color: var(--brand-2);
+  color: #0c100c;
+}
+.contact-form .cta-btn:disabled {
+  opacity: .55;
+  cursor: not-allowed;
 }
