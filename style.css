@@ -14,6 +14,24 @@
   --space-5:48px;
   --space-6:64px;
 }
+/* Prevent any horizontal scrolling */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Ensure the off-canvas menu never creates overflow when hidden */
+.mobile-menu {
+  width: 100vw;          /* lock to viewport width */
+  contain: paint;        /* isolate its painting/overflow */
+}
+
+/* Safety guards for media in case an asset is wider than its container */
+video, iframe {
+  max-width: 100%;
+  display: block;
+}
+
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
