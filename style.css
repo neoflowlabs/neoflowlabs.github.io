@@ -14,18 +14,11 @@
   --space-5:48px;
   --space-6:64px;
 }
-/* Prevent any horizontal scrolling (safer than 100vw tricks) */
-html, body {
-  overflow-x: clip;   /* use clip to avoid layout reflow; hidden also works */
-  max-width: 100%;
-}
 
-/* Ensure the off-canvas menu never creates overflow when hidden */
-.mobile-menu {
-  /* REMOVE width:100vw; */
-  /* inset:0 already pins left & right, so width will match the visual viewport */
-  contain: paint;     /* keeps its effects isolated */
-  overflow-y: auto;   /* scroll internally on small screens */
+/* Prevent any horizontal scrolling (avoid 100vw issues) */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* Safety guards for media in case an asset is wider than its container */
@@ -34,7 +27,6 @@ video, iframe, img {
   height: auto;
   display: block;
 }
-
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -90,13 +82,19 @@ nav{
 .hamburger{display:none; flex-direction:column; gap:4px; margin-left:auto; cursor:pointer}
 .hamburger span{width:24px; height:2px; background:#fff; border-radius:2px}
 
+/* Off-canvas mobile menu (fixed + above header + scrollable) */
 .mobile-menu{
   position:fixed; inset:0;
+  z-index:1000;
   background:#0f0f10;
   transform:translateX(100%);
   transition:transform .3s ease;
   padding:24px;
   display:flex; flex-direction:column; gap:16px;
+
+  height:100dvh;              /* full dynamic viewport height */
+  overflow-y:auto;            /* scroll all items */
+  -webkit-overflow-scrolling:touch;
 }
 .mobile-menu.open{transform:none}
 .mobile-menu a{
