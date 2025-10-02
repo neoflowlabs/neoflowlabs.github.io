@@ -155,14 +155,29 @@ button:active {
   grid-template-columns:repeat(3,1fr);
   gap:var(--space-4);
 }
+
+/* Make cards work for both <div> and <a> */
 .card{
   background:var(--card);
   border:1px solid #2a2d31;
   border-radius:var(--rad);
   padding:var(--space-4);
-  transition:transform .25s, box-shadow .25s, border-color .25s;
+  transition:transform .25s, box-shadow .25s, border-color .25s, background .25s;
 }
-.card:hover{transform:translateY(-4px); box-shadow:0 10px 30px rgba(0,0,0,.4); border-color:#3a3d42}
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+  border-color:#3a3d42;
+}
+a.card{display:block; cursor:pointer}
+a.card:focus-visible{
+  outline:0;
+  box-shadow:0 0 0 3px rgba(128,255,68,.18), 0 0 0 1px var(--brand);
+}
+/* Subtle brand-tinted hover only for clickable cards */
+.features a.card:hover{
+  background: linear-gradient(0deg, rgba(128,255,68,.06), rgba(128,255,68,.06)), var(--card);
+}
 .card h2{margin:0 0 6px}
 .card p{margin:0}
 
@@ -298,4 +313,40 @@ footer{border-top:1px solid #1b1c1f; padding:20px; text-align:center; color:#999
 .contact-form .cta-btn:disabled {
   opacity: .55;
   cursor: not-allowed;
+}
+
+/* ===== Project detail layout + responsive video ===== */
+.project-detail{
+  max-width: var(--max);
+  margin: auto;
+  padding: var(--space-5) var(--space-3);
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: var(--space-5);
+  align-items: start;
+}
+.project-text h2{ margin: 0 0 10px; }
+.project-text h3{ margin: 16px 0 8px; }
+
+.video-wrapper{
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  border-radius: var(--rad);
+  border: 1px solid #2a2d31;
+  overflow: hidden;
+}
+.video-wrapper video,
+.video-wrapper iframe{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Stack on mobile */
+@media (max-width: 900px){
+  .project-detail{
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
 }
