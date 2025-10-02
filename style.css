@@ -14,21 +14,24 @@
   --space-5:48px;
   --space-6:64px;
 }
-/* Prevent any horizontal scrolling */
+/* Prevent any horizontal scrolling (safer than 100vw tricks) */
 html, body {
-  overflow-x: hidden;
+  overflow-x: clip;   /* use clip to avoid layout reflow; hidden also works */
   max-width: 100%;
 }
 
 /* Ensure the off-canvas menu never creates overflow when hidden */
 .mobile-menu {
-  width: 100vw;          /* lock to viewport width */
-  contain: paint;        /* isolate its painting/overflow */
+  /* REMOVE width:100vw; */
+  /* inset:0 already pins left & right, so width will match the visual viewport */
+  contain: paint;     /* keeps its effects isolated */
+  overflow-y: auto;   /* scroll internally on small screens */
 }
 
 /* Safety guards for media in case an asset is wider than its container */
-video, iframe {
+video, iframe, img {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
