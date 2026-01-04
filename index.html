@@ -13,7 +13,7 @@
 
 <body>
   <header>
-    <nav>
+    <nav class="container nav">
       <div class="logo">
         <img src="logo.png" alt="NeoFlow Labs Logo" />
       </div>
@@ -31,8 +31,8 @@
       </div>
     </nav>
 
-    <div class="mobile-menu">
-      <a href="index.html">Home</a>
+    <div class="mobile-menu container">
+      <a href="index.html" class="active">Home</a>
       <a href="about.html">About Us</a>
       <a href="services.html">Services</a>
       <a href="projects.html">Projects</a>
@@ -42,78 +42,89 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-content fade-in">
-      <h1>Welcome to <span>NeoFlow Labs</span></h1>
-      <p>Smart Automation, AI &amp; Digital Solutions for Modern Businesses</p>
-      <div class="hero-actions">
-        <a href="about.html" class="cta-btn">Discover More</a>
-        <a href="services.html" class="cta-btn secondary">View Services</a>
+    <div class="container hero-inner">
+      <div class="hero-content fade-in">
+        <h1>Welcome to <span>NeoFlow Labs</span></h1>
+        <p>Smart Automation, AI &amp; Digital Solutions for Modern Businesses</p>
+
+        <div class="hero-actions">
+          <a href="about.html" class="cta-btn">Discover More</a>
+          <a href="services.html" class="cta-btn secondary">View Services</a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- DIGITAL SOLUTIONS PREVIEW -->
-  <section class="about-preview fade-in">
-    <div class="content">
-      <h2>Digital Solutions That Work for You</h2>
-      <p>
-        We help businesses modernize with AI-powered systems, automated workflows,
-        smart websites, dashboards, and connected tools that reduce manual work and
-        improve efficiency.
-      </p>
-      <a href="services.html" class="cta-btn secondary">Explore Our Solutions</a>
+  <section class="about-preview">
+    <div class="container">
+      <div class="about-preview-box fade-in">
+        <div class="content">
+          <h2>Digital Solutions That Work for You</h2>
+          <p>
+            We help businesses modernize with AI-powered systems, automated workflows,
+            smart websites, dashboards, and connected tools that reduce manual work and
+            improve efficiency.
+          </p>
+          <a href="services.html" class="cta-btn secondary">Explore Our Solutions</a>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- FEATURES -->
-  <section class="features slide-up">
-    <div class="card">
-      <h2>⚙️ Industrial Automation</h2>
-      <p>
-        PLC, HMI, SCADA and smart control systems designed for reliable operations and higher output.
-      </p>
-    </div>
+  <section class="features">
+    <div class="container">
+      <div class="grid slide-up">
+        <div class="card">
+          <h2>⚙️ Industrial Automation</h2>
+          <p>PLC, HMI, SCADA and smart control systems designed for reliable operations and higher output.</p>
+        </div>
 
-    <div class="card">
-      <h2>🌐 IoT &amp; Connected Systems</h2>
-      <p>
-        Real-time monitoring, data logging, dashboards, and remote access solutions for full visibility.
-      </p>
-    </div>
+        <div class="card">
+          <h2>🌐 IoT &amp; Connected Systems</h2>
+          <p>Real-time monitoring, data logging, dashboards, and remote access solutions for full visibility.</p>
+        </div>
 
-    <div class="card">
-      <h2>🤖 AI &amp; Digital Solutions</h2>
-      <p>
-        WhatsApp bots, booking systems, workflow automation, websites and business tools that scale.
-      </p>
-    </div>
+        <div class="card">
+          <h2>🤖 AI &amp; Digital Solutions</h2>
+          <p>WhatsApp bots, booking systems, workflow automation, websites and business tools that scale.</p>
+        </div>
 
-    <div class="card">
-      <h2>💡 Engineering Problem Solving</h2>
-      <p>
-        From concept to deployment, we turn complex challenges into practical, scalable solutions.
-      </p>
+        <div class="card">
+          <h2>💡 Engineering Problem Solving</h2>
+          <p>From concept to deployment, we turn complex challenges into practical, scalable solutions.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- OPTIONAL: QUICK STATS / TRUST STRIP -->
-  <section class="trust-strip slide-up">
-    <div class="trust-item">
-      <h3>End-to-End Delivery</h3>
-      <p>Design → Build → Deploy → Support</p>
-    </div>
-    <div class="trust-item">
-      <h3>Industry + Digital</h3>
-      <p>Automation + Software + AI</p>
-    </div>
-    <div class="trust-item">
-      <h3>Built for SMEs</h3>
-      <p>Affordable, scalable solutions</p>
+  <!-- TRUST STRIP -->
+  <section class="trust-strip">
+    <div class="container">
+      <div class="trust-grid slide-up">
+        <div class="trust-item">
+          <h3>End-to-End Delivery</h3>
+          <p>Design → Build → Deploy → Support</p>
+        </div>
+
+        <div class="trust-item">
+          <h3>Industry + Digital</h3>
+          <p>Automation + Software + AI</p>
+        </div>
+
+        <div class="trust-item">
+          <h3>Built for SMEs</h3>
+          <p>Affordable, scalable solutions</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 NeoFlow Labs | All Rights Reserved</p>
+    <div class="container">
+      <p>© 2025 NeoFlow Labs | All Rights Reserved</p>
+    </div>
   </footer>
 
   <script src="script.js"></script>
