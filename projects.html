@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects - NeoFlow Labs</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100..900&display=swap">
-  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100..900&display=swap" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <header>
     <nav>
-      <div class="logo"><img src="logo.png" alt="NeoFlow Labs Logo"></div>
+      <div class="logo"><img src="logo.png" alt="NeoFlow Labs Logo" /></div>
+
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
@@ -19,8 +23,12 @@
         <li><a href="projects.html" class="active">Projects</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <div class="hamburger"><span></span><span></span><span></span></div>
+
+      <div class="hamburger" aria-label="Open menu" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
     </nav>
+
     <div class="mobile-menu">
       <a href="index.html">Home</a>
       <a href="about.html">About Us</a>
@@ -36,7 +44,12 @@
   </section>
 
   <section class="features slide-up">
-    <!-- New cards FIRST -->
+    <!-- Digital / AI Projects FIRST -->
+    <a class="card" href="whatsapp-bot.html">
+      <h2>💬 WhatsApp AI Bot</h2>
+      <p>Automated bookings, customer support, reminders & workflows — powered by AI.</p>
+    </a>
+
     <a class="card" href="rfid.html">
       <h2>🔐 RFID Solution</h2>
       <p>Touchless authentication & attendance with instant scans and robust logs.</p>
@@ -47,28 +60,32 @@
       <p>Accurate real-time counting with sensors and a clean web dashboard.</p>
     </a>
 
-    <!-- Existing cards -->
+    <!-- Industrial / Engineering Projects -->
     <div class="card">
       <h2>🏭 Smart Factory Automation</h2>
-      <p>Redesigned production workflows to reduce downtime by 30%.</p>
+      <p>Redesigned production workflows to improve throughput and reduce downtime.</p>
     </div>
+
     <div class="card">
       <h2>📡 IoT Monitoring Systems</h2>
-      <p>Connected sensors delivering real-time insights to clients worldwide.</p>
+      <p>Connected sensors delivering real-time insights via dashboards and alerts.</p>
     </div>
+
     <div class="card">
       <h2>⚡ Energy Optimization</h2>
-      <p>Solutions that cut operational energy usage by 25%.</p>
+      <p>Monitoring + control strategies that reduce operational energy usage.</p>
     </div>
+
     <div class="card">
       <h2>📱 EdTech Platforms</h2>
-      <p>Interactive learning technologies empowering the next generation.</p>
+      <p>Interactive learning technologies designed to empower the next generation.</p>
     </div>
   </section>
 
   <footer>
     <p>© 2025 NeoFlow Labs | All Rights Reserved</p>
   </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
