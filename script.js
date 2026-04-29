@@ -10,9 +10,8 @@ let lastFocus = null;
 function openMenu() {
   if (!mobileMenu) return;
   mobileMenu.classList.add('open');
-  document.body.classList.add('body-lock');   // requires .body-lock { overflow:hidden; } in CSS
+  document.body.classList.add('body-lock');
   lastFocus = document.activeElement;
-  // Focus first link for accessibility
   const firstLink = $('a', mobileMenu);
   firstLink && firstLink.focus();
   document.addEventListener('keydown', trapFocus);
@@ -23,45 +22,36 @@ function closeMenu() {
   mobileMenu.classList.remove('open');
   document.body.classList.remove('body-lock');
   document.removeEventListener('keydown', trapFocus);
-  // Restore focus
   lastFocus && lastFocus.focus && lastFocus.focus();
 }
 
 function trapFocus(e) {
   if (e.key === 'Escape') return closeMenu();
   if (e.key !== 'Tab') return;
-
   const focusables = $$('a, button, [tabindex]:not([tabindex="-1"])', mobileMenu)
     .filter(el => !el.hasAttribute('disabled') && el.offsetParent !== null);
   if (!focusables.length) return;
-
   const first = focusables[0];
   const last  = focusables[focusables.length - 1];
-
-  if (e.shiftKey && document.activeElement === first) {
-    last.focus();
-    e.preventDefault();
-  } else if (!e.shiftKey && document.activeElement === last) {
-    first.focus();
-    e.preventDefault();
-  }
+  if (e.shiftKey && document.activeElement === first) { last.focus(); e.preventDefault(); }
+  else if (!e.shiftKey && document.activeElement === last) { first.focus(); e.preventDefault(); }
 }
 
 hamburger && hamburger.addEventListener('click', () => {
   mobileMenu?.classList.contains('open') ? closeMenu() : openMenu();
 });
 
-// Close menu when a link is tapped/clicked
+// Close when a nav link is tapped
 mobileMenu && mobileMenu.addEventListener('click', (e) => {
   if (e.target.tagName === 'A') closeMenu();
 });
 
-// Optional: close if backdrop (empty area) is clicked
+// Close on backdrop click
 mobileMenu && mobileMenu.addEventListener('mousedown', (e) => {
   if (e.target === mobileMenu) closeMenu();
 });
 
-// ===== Active link highlight (desktop + mobile)
+// ===== Active link highlight
 (function setActiveNav() {
   const current = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
   $$('.nav-links a, .mobile-menu a').forEach(a => {
@@ -72,40 +62,32 @@ mobileMenu && mobileMenu.addEventListener('mousedown', (e) => {
 })();
 
 // ===== Reveal on scroll (respects reduced motion)
-(function revealOnScroll(){
+(function revealOnScroll() {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const targets = $$('.fade-in, .slide-up');
-  if (prefersReduced) {
-    targets.forEach(el => el.classList.add('revealed'));
-    return;
-  }
+  if (prefersReduced) { targets.forEach(el => el.classList.add('revealed')); return; }
   const io = new IntersectionObserver((entries, obs) => {
     entries.forEach(ent => {
-      if (ent.isIntersecting) {
-        ent.target.classList.add('revealed');
-        obs.unobserve(ent.target);
-      }
+      if (ent.isIntersecting) { ent.target.classList.add('revealed'); obs.unobserve(ent.target); }
     });
-  }, { threshold: 0.2 });
+  }, { threshold: 0.12 });
   targets.forEach(el => io.observe(el));
 })();
 
-// ===== Contact form AJAX with success/error + double-submit guard
-(function(){
+// ===== Contact form AJAX
+(function () {
   const form = $('#contact-form');
   if (!form) return;
-  const status = $('#form-status');
+  const status    = $('#form-status');
   const submitBtn = form.querySelector('button[type="submit"]');
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (submitBtn) {
       submitBtn.disabled = true;
-      const originalText = submitBtn.textContent;
-      submitBtn.dataset.originalText = originalText || '';
-      submitBtn.textContent = 'Sending...';
+      submitBtn.dataset.originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending…';
     }
-
     const data = new FormData(form);
     try {
       const response = await fetch(form.action, {
@@ -113,7 +95,6 @@ mobileMenu && mobileMenu.addEventListener('mousedown', (e) => {
         body: data,
         headers: { 'Accept': 'application/json' }
       });
-
       if (response.ok) {
         status.textContent = '✅ Thanks, your message has been sent!';
         status.classList.remove('error');
@@ -121,12 +102,7 @@ mobileMenu && mobileMenu.addEventListener('mousedown', (e) => {
         form.reset();
       } else {
         let msg = '❌ Oops! Something went wrong.';
-        try {
-          const resJson = await response.json();
-          if (resJson?.errors?.length) {
-            msg = '❌ ' + resJson.errors.map(e => e.message).join(', ');
-          }
-        } catch(_) {}
+        try { const j = await response.json(); if (j?.errors?.length) msg = '❌ ' + j.errors.map(e => e.message).join(', '); } catch(_) {}
         status.textContent = msg;
         status.classList.add('error');
         status.style.display = 'block';
