@@ -1,91 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects - NeoFlow Labs</title>
-
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100..900&display=swap" />
-
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — NeoFlow Labs</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <header>
-    <nav>
-      <div class="logo"><img src="logo.png" alt="NeoFlow Labs Logo" /></div>
 
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="projects.html" class="active">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-
-      <div class="hamburger" aria-label="Open menu" role="button" tabindex="0">
-        <span></span><span></span><span></span>
-      </div>
-    </nav>
-
-    <div class="mobile-menu">
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="services.html">Services</a>
-      <a href="projects.html" class="active">Projects</a>
-      <a href="contact.html">Contact</a>
+<header>
+  <nav>
+    <div class="logo"><img src="logo.png" alt="NeoFlow Labs Logo"></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="hamburger" aria-label="Open menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
     </div>
-  </header>
+  </nav>
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="services.html">Services</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</header>
 
-  <section class="page-header fade-in">
-    <h1>Our <span class="highlight">Projects</span></h1>
-    <p>Real-world applications of our technology and expertise.</p>
-  </section>
+<section class="page-header fade-in">
+  <h1>Our <span class="highlight">Projects</span></h1>
+  <p>Real-world applications of our technology and expertise.</p>
+</section>
 
-  <section class="features slide-up">
-    <!-- Digital / AI Projects FIRST -->
-    <a class="card" href="whatsapp-bot.html">
-      <h2>💬 WhatsApp AI Bot</h2>
-      <p>Automated bookings, customer support, reminders & workflows — powered by AI.</p>
-    </a>
+<section class="features grid-4 slide-up">
 
-    <a class="card" href="rfid.html">
-      <h2>🔐 RFID Solution</h2>
-      <p>Touchless authentication & attendance with instant scans and robust logs.</p>
-    </a>
+  <!-- Clickable / detail projects -->
+  <a class="card" href="whatsapp-bot.html">
+    <div class="card-num">01 — AI</div>
+    <div class="card-icon">💬</div>
+    <h2>WhatsApp AI Bot</h2>
+    <p>Automated bookings, customer support, reminders &amp; workflows — powered by AI.</p>
+  </a>
 
-    <a class="card" href="item-counter.html">
-      <h2>🧮 Item Counter</h2>
-      <p>Accurate real-time counting with sensors and a clean web dashboard.</p>
-    </a>
+  <a class="card" href="rfid.html">
+    <div class="card-num">02 — IoT</div>
+    <div class="card-icon">🔐</div>
+    <h2>RFID Solution</h2>
+    <p>Touchless authentication &amp; attendance with instant scans and robust logs.</p>
+  </a>
 
-    <!-- Industrial / Engineering Projects -->
-    <div class="card">
-      <h2>🏭 Smart Factory Automation</h2>
-      <p>Redesigned production workflows to improve throughput and reduce downtime.</p>
-    </div>
+  <a class="card" href="item-counter.html">
+    <div class="card-num">03 — Hardware</div>
+    <div class="card-icon">🧮</div>
+    <h2>Item Counter</h2>
+    <p>Accurate real-time counting with sensors and a clean web dashboard.</p>
+  </a>
 
-    <div class="card">
-      <h2>📡 IoT Monitoring Systems</h2>
-      <p>Connected sensors delivering real-time insights via dashboards and alerts.</p>
-    </div>
+  <!-- Static showcase projects -->
+  <div class="card">
+    <div class="card-num">04 — Industrial</div>
+    <div class="card-icon">🏭</div>
+    <h2>Smart Factory Automation</h2>
+    <p>Redesigned production workflows to improve throughput and reduce downtime.</p>
+  </div>
 
-    <div class="card">
-      <h2>⚡ Energy Optimization</h2>
-      <p>Monitoring + control strategies that reduce operational energy usage.</p>
-    </div>
+  <div class="card">
+    <div class="card-num">05 — IoT</div>
+    <div class="card-icon">📡</div>
+    <h2>IoT Monitoring Systems</h2>
+    <p>Connected sensors delivering real-time insights via dashboards and alerts.</p>
+  </div>
 
-    <div class="card">
-      <h2>📱 EdTech Platforms</h2>
-      <p>Interactive learning technologies designed to empower the next generation.</p>
-    </div>
-  </section>
+  <div class="card">
+    <div class="card-num">06 — Energy</div>
+    <div class="card-icon">⚡</div>
+    <h2>Energy Optimisation</h2>
+    <p>Monitoring + control strategies that measurably reduce operational energy usage.</p>
+  </div>
 
-  <footer>
-    <p>© 2025 NeoFlow Labs | All Rights Reserved</p>
-  </footer>
+  <div class="card">
+    <div class="card-num">07 — EduTech</div>
+    <div class="card-icon">📱</div>
+    <h2>EdTech Platforms</h2>
+    <p>Interactive learning technologies designed to empower the next generation.</p>
+  </div>
 
-  <script src="script.js"></script>
+</section>
+
+<footer>
+  <p>© 2025 NeoFlow Labs | All Rights Reserved</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
